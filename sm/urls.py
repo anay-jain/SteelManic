@@ -24,4 +24,5 @@ urlpatterns = [
     path('about/',views.about , name='about'),
     path('shop/' , views.shop , name='shop'),
     path('contact/',include('contactus.urls')),
+    path('cart/',views.cart , name='cart'),
 ]

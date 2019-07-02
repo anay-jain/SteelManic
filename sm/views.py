@@ -17,4 +17,7 @@ def shop(request):
         'all_items' : all_items,
         'cart':cart
     }
-    return render(request, 'shop.html',context)    
+    return render(request, 'shop.html',context) 
+
+def cart(request):
+    return render(request,'cart.html')       
