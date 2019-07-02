@@ -146,12 +146,17 @@
                                     </li>
                                     <li><a href="portfolio.html">Events and News</a></li>
                                     <li><a href="contact.html">Contact</a></li>
+                                    <!-- <li> <a href="#"><i class="fa fa-shopping-cart" aria-hidden="true"></i> </a></li> -->
                                 </ul>
-
+                                <button type="button" class="btn btn-secondary mx-2" id="popcart" data-container="body" data-toggle="popover" data-placement="bottom" data-content="Vivamus
+                                sagittis lacus vel augue laoreet rutrum faucibus.">
+                                         <span>Cart <span id="cart">(0)</span></span>
+                                      </button>
                                 <!-- Search Icon -->
-                                <div id="searchIcon">
+                                <!-- <div id="cartIcon">
+                                   
                                     <i class="fa fa-search" aria-hidden="true"></i>
-                                </div>
+                                </div> -->
 
                             </div>
                             <!-- Navbar End -->
@@ -309,7 +314,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
     </footer>
     {% endblock %}
     {% load static %}
-    <script src="{% static 'https://cdn.jsdelivr.net/npm/vue' %}"></script>
+    <!-- <script src="{% static 'https://cdn.jsdelivr.net/npm/vue' %}"></script> -->
     <script src="{% static 'sm/js/jquery/jquery-2.2.4.min.js' %}"></script>
     <!-- Popper js -->
     <script src="{% static 'sm/js/bootstrap/popper.min.js' %}"></script>
@@ -319,6 +324,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
     <script src="{% static 'sm/js/plugins/plugins.js' %}"></script>
     <!-- Active js -->
     <script src="{% static 'sm/js/active.js' %}"></script>
+    {% block js%} {% endblock %}
 
     </body>
     </html>

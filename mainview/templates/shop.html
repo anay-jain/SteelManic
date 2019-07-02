@@ -224,7 +224,7 @@
                                         </div>
                                         <div class="product-meta d-flex">
                                             <a href="#" class="wishlist-btn"><i class="icon_heart_alt"></i></a>
-                                            <a href="cart.html" class="add-to-cart-btn">Add to cart</a>
+                                            <button id="{{ item.item_title }}" class="add-to-cart-btn cart">Add to cart</button>
                                             <a href="#" class="compare-btn"><i class="arrow_left-right_alt"></i></a>
                                         </div>
                                     </div>
@@ -277,7 +277,41 @@
         </div>
     </section>
     <!-- ##### Shop Area End ##### -->
-{% load static %}    
-
-<script src = "{% static 'sm/js/shop.js' %}"></script>
+ 
+   
 {% endblock %}
+ {% block js %}
+    <script>
+        console.log("working")
+        var cart={};
+        if(localStorage.getItem('cart') == null){
+         var cart={};
+    
+        }
+        else{
+            cart= JSON.parse(localStorage.getItem('cart'));
+            document.getElementById('cart').innerHTML = Object.keys(cart).length;
+        }
+     $('.cart').click(function(){
+         console.log("clicked")
+         var idstr = this.id.toString();
+       
+         if (cart[idstr] != undefined){
+             cart[idstr];
+         }
+         else{
+             cart[idstr]=1;
+         }
+         console.log(cart)
+         console.log(Object.keys('cart'))
+         localStorage.setItem('cart',JSON.stringify(cart));
+         
+     });
+   
+
+    </script>
+
+    
+
+{% endblock %}
+
