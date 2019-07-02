@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'mainview.apps.MainviewConfig',
+    'contactus',
 ]
 
 MIDDLEWARE = [
@@ -51,7 +52,9 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'sm.urls'
-
+CONTACT_US_EMAIL = "anayjain98@gmail.com"
+EMAIL_HOST = "localhost"
+EMAIL_PORT = 1025
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
