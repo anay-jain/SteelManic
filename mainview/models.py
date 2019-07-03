@@ -1,6 +1,7 @@
 from django.db import models
 
 class Item(models.Model):
+    item_id=models.CharField(max_length=30 , primary_key=True)
     item_title=models.CharField(max_length=30)
     item_description=models.TextField()
     item_image=models.ImageField(upload_to='media',blank=True)

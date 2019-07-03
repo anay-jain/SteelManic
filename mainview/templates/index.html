@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 
 {% block content %}
+{% load static %}
 
     <!-- ##### Hero Area Start ##### -->
     <section class="hero-area">
@@ -9,7 +10,7 @@
             <!-- Single Hero Post -->
             <div class="single-hero-post bg-overlay">
                 <!-- Post Image -->
-                <div class="slide-img bg-img" style="background-image: url(img/bg-img/cover1.jpg);"></div>
+                <div class="slide-img bg-img" style="background-image: url( 'static/sm/img/2.jpg' );"></div>
                 <div class="container h-100">
                     <div class="row h-100 align-items-center">
                         <div class="col-12">
@@ -30,7 +31,8 @@
             <!-- Single Hero Post -->
             <div class="single-hero-post bg-overlay">
                 <!-- Post Image -->
-                <div class="slide-img bg-img" style="background-image: url(img/bg-img/cover2.jpg);"></div>
+                    {% load static%}
+                <div class="slide-img bg-img" style="background-image: url({% static 'images/cover.jpg' %});"></div>
                 <div class="container h-100">
                     <div class="row h-100 align-items-center">
                         <div class="col-12">
@@ -74,7 +76,7 @@
                     <div class="portfolio-thumbnail bg-img" style="background-image: url(img/bg-img/cover1.jpg);"></div>
                     <!-- Portfolio Hover Text -->
                     <div class="portfolio-hover-overlay">
-                        <a href="img/bg-img/17.jpg" class="portfolio-img d-flex align-items-center justify-content-center" title="Portfolio 2">
+                        <a href="{% static 'sm/img/3.jpg' %}" class="portfolio-img d-flex align-items-center justify-content-center" title="Portfolio 2">
                             <div class="port-hover-text">
                                 <h3>Cutlery</h3>
                                 <h5>We design awesome culery</h5>
@@ -89,7 +91,7 @@
                     <div class="portfolio-thumbnail bg-img" style="background-image: url(img/bg-img/tableware.jpg);"></div>
                     <!-- Portfolio Hover Text -->
                     <div class="portfolio-hover-overlay">
-                        <a href="img/bg-img/18.jpg" class="portfolio-img d-flex align-items-center justify-content-center" title="Portfolio 3">
+                        <a href="{% static 'sm/img/3.jpg' %}" class="portfolio-img d-flex align-items-center justify-content-center" title="Portfolio 3">
                             <div class="port-hover-text">
                                 <h3>TableWare</h3>
                                 <h5>We have amazing TableWare</h5>
@@ -104,7 +106,7 @@
                     <div class="portfolio-thumbnail bg-img" style="background-image: url(img/bg-img/barware.jpg);"></div>
                     <!-- Portfolio Hover Text -->
                     <div class="portfolio-hover-overlay">
-                        <a href="img/bg-img/19.jpg" class="portfolio-img d-flex align-items-center justify-content-center" title="Portfolio 4">
+                        <a href="{% static 'sm/img/3.jpg' %}" class="portfolio-img d-flex align-items-center justify-content-center" title="Portfolio 4">
                             <div class="port-hover-text">
                                 <h3>barware</h3>
                                 <h5>Peete rhe jaaoge</h5>

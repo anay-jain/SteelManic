@@ -33,4 +33,11 @@ def shop(request):
     return render(request, 'shop.html',context) 
 
 def cart(request):
-    return render(request,'cart.html')       
+    return render(request,'cart.html')   
+
+def kitchenware(request):
+    return render(request,'kitchenware.html')
+def tableware(request):
+    return render(request,'tableware.html')
+def barware(request):
+    return render(request,'barware.html')        
