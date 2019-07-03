@@ -1,6 +1,7 @@
-from django.shortcuts import render 
+from django.shortcuts import render,get_object_or_404
 from mainview.models import Item, Query
 from django.core.paginator import Paginator
+
 def index(request):
     return render(request, 'index.html')
 
@@ -32,12 +33,18 @@ def shop(request):
     }
     return render(request, 'shop.html',context) 
 
+def products(request ,item_id):
+    item=get_object_or_404(Item , item_id=item_id)
+
+    return render(request , 'shop-details.html',{'item' :item})
+
+
 def cart(request):
     return render(request,'cart.html')   
 
 def kitchenware(request):
-    return render(request,'kitchenware.html')
+    return render(request,'shop/kitchenware.html')
 def tableware(request):
-    return render(request,'tableware.html')
+    return render(request,'shop/tableware.html')
 def barware(request):
-    return render(request,'barware.html')        
+    return render(request,'shop/barware.html')        
