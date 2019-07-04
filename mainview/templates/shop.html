@@ -166,16 +166,16 @@
                             <div class="single-product-area mb-50">
                                 <!-- Product Image -->
                                 <div class="product-img">
-                                    <a href="products/"><img src="/media/{{item.item_image}}" alt=""></a>
+                                    <a href="/products/{{ item.item_id }}"><img src="/media/{{item.item_image}}" alt=""></a>
                                     <!-- Product Tag -->
                                     <div class="product-tag">
                                         <a href="#">Hot</a>
                                     </div>
                                     <div class="product-meta d-flex">
-                                        <a href="#" class="wishlist-btn"><i class="icon_heart_alt"></i></a>
-                                        <button id="{{ item.item_title }}" class="add-to-cart-btn cart">Add to
-                                            cart</button>
-                                        <a href="#" class="compare-btn"><i class="arrow_left-right_alt"></i></a>
+                                        <a href="/cart/" class="cart-btn"><i class="fa fa-shopping-cart"></i></a>
+                                        <a  href="#" id="btn{{ item.item_id }}" class="add-to-cart-btn cart">Add to
+                                            cart</a>
+                                        <a href="#" class="del"><i class="icon_close"></i></a>
                                     </div>
                                 </div>
                                 <!-- Product Info -->
@@ -238,31 +238,46 @@
 {% endblock %}
 {% block js %}
 <script>
-    console.log("working")
+   
     var cart = {};
-    if (localStorage.getItem('cart') == null) {
-        var cart = {};
 
-    }
-    else {
-        cart = JSON.parse(localStorage.getItem('cart'));
-        document.getElementById('cart').innerHTML = Object.keys(cart).length;
-    }
-    $('.cart').click(function () {
+
+
+    $('.cart').click(function addCart() {
         console.log("clicked")
         var idstr = this.id.toString();
 
         if (cart[idstr] != undefined) {
             cart[idstr];
+            $("#"+idstr).html("Item Added")
+            $("#"+idstr).attr("disabled" , true)
+            saveCart();
         }
         else {
-            cart[idstr] = 1;
+            cart[idstr] = 1; 
+            saveCart();
+
         }
-        console.log(cart)
-        console.log(Object.keys('cart'))
-        localStorage.setItem('cart', JSON.stringify(cart));
+       
+        // console.log(Object.keys('cart'))
+       
 
     });
+        $('.del').click(function delItem(){
+            var ids = this.id.toString();
+            console.log("del is click")
+            delete cart[ids];
+            $("#"+ids).html("Add to Cart")
+            saveCart();
+
+
+        })
+    
+        function saveCart(){
+            localStorage.setItem('cart', JSON.stringify(cart));
+        }
+
+    
 
 
 </script>

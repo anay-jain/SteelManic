@@ -86,14 +86,7 @@
 {% endblock %}
 {% block js %}
     <script>
-        if(localStorage.getItem('cart') == null){
-         var cart={};
-    
-        }
-        else{
-            cart= JSON.parse(localStorage.getItem('cart'));
-       
-        }
+        
         if ($.isEmptyObject(cart)){
             mystr= ` <td class="cart_product_img" >
                        
@@ -112,7 +105,6 @@
                      </td>    
                                 
                   `
-            mystr1 = ` <td class="action"><a href="#"><i class="icon_close"></i></a></td>`
             $('#items').append(mystr);
               
         }

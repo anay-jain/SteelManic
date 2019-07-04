@@ -79,25 +79,25 @@
                             <div class="classynav">
                                 <ul>
                                     <li><a href="/">Home</a></li>
-                                    <li><a href="about.html">About Us</a></li>
-                                    <li><a href="#">Shop</a>
+                                    <li><a href="/about">About Us</a></li>
+                                    <li><a href="/shop">Shop</a>
                                         <ul class="dropdown">
-                                            <li><a href="shop/">All products</a></li>
+                                            <li><a href="/shop">All products</a></li>
                                             
-                                            <li><a href="kitchenware">KitchenWare</a>
+                                            <li><a href="/shop/kitchenware">KitchenWare</a>
                                                 <ul class="dropdown">
                                                     <li><a href="cutlery/">Cutlery</a></li>
                                                     
                                                 </ul>
                                             </li>
-                                            <li><a href="tableware">Tableware</a>
+                                            <li><a href="/shop/tableware">Tableware</a>
                                                 <ul class="dropdown">
                                                     <li><a href="portfolio.html">abc</a></li>
                                                     <li><a href="single-portfolio.html">Portfolio Details</a></li>
                                                 </ul>
                                             </li>
 
-                                            <li><a href="barware">Barware</a>
+                                            <li><a href="/shop/barware">Barware</a>
                                                 <ul class="dropdown">
                                                     <li><a href="blog.html">Icebuckets</a></li>
                                                     <li><a href="single-post.html">Blog Details</a></li>
@@ -108,14 +108,13 @@
                                     </li>
                                    
                                     <li><a href="portfolio.html">Events and News</a></li>
-                                    <li><a href="contact.html">Contact Us</a></li>
+                                    <li><a href="/contact">Contact Us</a></li>
                                     <!-- <li> <a href="#"><i class="fa fa-shopping-cart" aria-hidden="true"></i> </a></li> -->
-                                </ul>
-                                <button type="button" class="btn btn-secondary mx-2" id="popcart" data-container="body" data-toggle="popover" data-placement="bottom" data-content="Vivamus
-                                sagittis lacus vel augue laoreet rutrum faucibus.">
-                                         <span>Cart <span id="cart">(0)</span></span>
-                                      </button>
-                              
+                               
+                                       <li><a href="/cart" class="button">
+                                         <span>Cart ( <span id="cart-btn">0</span>)</span>
+                                      </a></li> 
+                               </ul>
                             </div>
                             <!-- Navbar End -->
                         </div>
@@ -274,6 +273,17 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
     <script src="{% static 'sm/js/plugins/plugins.js' %}"></script>
     <!-- Active js -->
     <script src="{% static 'sm/js/active.js' %}"></script>
+    <script>
+    if(localStorage.getItem('cart') == null){
+         var cart={};
+    
+        }
+        else{
+            cart= JSON.parse(localStorage.getItem('cart'));
+            document.getElementById('cart-btn').innerHTML = Object.keys(cart).length;
+       
+        }
+    </script>
     {% block js%} {% endblock %}
 
     </body>
