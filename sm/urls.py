@@ -29,6 +29,7 @@ urlpatterns = [
     path('shop/kitchenware/',views.kitchenware,name="kitchenware"),
     path('shop/tableware/' ,views.tableware,name="tableware"),
     path('shop/barware/' , views.barware,name="barware"),
-    path('products/<str:item_id>/',views.products,name="products")
+    path('products/<str:item_id>/',views.products,name="products"),
+    path('contact/contact_success/' , views.contact_success , name='contact_success'),
 
 ] + static(settings.MEDIA_URL , document_root=settings.MEDIA_ROOT)

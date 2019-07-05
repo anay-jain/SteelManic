@@ -1,4 +1,4 @@
-from django.shortcuts import render,get_object_or_404
+from django.shortcuts import render,get_object_or_404,HttpResponseRedirect
 from mainview.models import Item, Query
 from django.core.paginator import Paginator
 
@@ -18,18 +18,16 @@ def contact(request):
        desc=request.POST.get('desc','')
        query = Query(itemjson=itemjson ,name=name , email=email,sub=sub, phone=phone , desc=desc)
        query.save()
-       thank = True
+       return HttpResponseRedirect('contact_success/')
     return render(request, 'contact.html',{'thank': thank })
 
 def shop(request):
     all_items = Item.objects.all()
-    cart=[]
     paginator = Paginator(all_items , 2)
     page = request.GET.get('page')
     all_items = paginator.get_page(page)
     context = {
         'all_items' : all_items,
-        'cart':cart
     }
     return render(request, 'shop.html',context) 
 
@@ -47,4 +45,14 @@ def kitchenware(request):
 def tableware(request):
     return render(request,'shop/tableware.html')
 def barware(request):
-    return render(request,'shop/barware.html')        
+    all_items = Item.objects.filter(item_category='barware')
+    paginator = Paginator(all_items , 2)
+    page = request.GET.get('page')
+    all_items = paginator.get_page(page)
+    context = {
+        'all_items' : all_items,
+    }
+    return render(request, 'shop/barware.html',context)
+
+def contact_success(request):
+    return render(request,'contact/contact_success.html')        

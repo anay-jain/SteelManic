@@ -266,7 +266,7 @@
         $('.del').click(function delItem(){
             var ids = this.id.toString();
             console.log("del is click")
-            delete cart[ids];
+            cart[ids] ==null
             $("#"+ids).html("Add to Cart")
             saveCart();
 
