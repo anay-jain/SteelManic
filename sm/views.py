@@ -41,8 +41,22 @@ def cart(request):
     return render(request,'cart.html')   
 
 def kitchenware(request):
+    all_items = Item.objects.filter(item_category='kitchenware')
+    paginator = Paginator(all_items , 2)
+    page = request.GET.get('page')
+    all_items = paginator.get_page(page)
+    context = {
+        'all_items' : all_items,
+    }
     return render(request,'shop/kitchenware.html')
 def tableware(request):
+    all_items = Item.objects.filter(item_category='tableware')
+    paginator = Paginator(all_items , 2)
+    page = request.GET.get('page')
+    all_items = paginator.get_page(page)
+    context = {
+        'all_items' : all_items,
+    }
     return render(request,'shop/tableware.html')
 def barware(request):
     all_items = Item.objects.filter(item_category='barware')

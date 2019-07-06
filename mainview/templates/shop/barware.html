@@ -52,41 +52,11 @@
                         <h4 class="widget-title">Categories</h4>
                         <div class="widget-desc">
                             <!-- Single Checkbox -->
-                            <div class="custom-control custom-checkbox d-flex align-items-center mb-2">
-                                <input type="checkbox" class="custom-control-input" id="customCheck1">
-                                <label class="custom-control-label" for="customCheck1">All plants <span
-                                        class="text-muted">(72)</span></label>
-                            </div>
-                            <!-- Single Checkbox -->
-                            <div class="custom-control custom-checkbox d-flex align-items-center mb-2">
-                                <input type="checkbox" class="custom-control-input" id="customCheck2">
-                                <label class="custom-control-label" for="customCheck2">Outdoor plants <span
-                                        class="text-muted">(20)</span></label>
-                            </div>
-                            <!-- Single Checkbox -->
-                            <div class="custom-control custom-checkbox d-flex align-items-center mb-2">
-                                <input type="checkbox" class="custom-control-input" id="customCheck3">
-                                <label class="custom-control-label" for="customCheck3">Indoor plants <span
-                                        class="text-muted">(15)</span></label>
-                            </div>
-                            <!-- Single Checkbox -->
-                            <div class="custom-control custom-checkbox d-flex align-items-center mb-2">
-                                <input type="checkbox" class="custom-control-input" id="customCheck4">
-                                <label class="custom-control-label" for="customCheck4">Office Plants <span
-                                        class="text-muted">(20)</span></label>
-                            </div>
-                            <!-- Single Checkbox -->
-                            <div class="custom-control custom-checkbox d-flex align-items-center mb-2">
-                                <input type="checkbox" class="custom-control-input" id="customCheck5">
-                                <label class="custom-control-label" for="customCheck5">Potted <span
-                                        class="text-muted">(15)</span></label>
-                            </div>
-                            <!-- Single Checkbox -->
-                            <div class="custom-control custom-checkbox d-flex align-items-center mb-2">
-                                <input type="checkbox" class="custom-control-input" id="customCheck6">
-                                <label class="custom-control-label" for="customCheck6">Others <span
-                                        class="text-muted">(2)</span></label>
-                            </div>
+                            <ul>
+                            <li> <a href="barware/"><p style="font-size: 20px">BARWARE</p></a> </li>
+                            <li> <a href="tableware/"><p style="font-size: 20px">TABLEWARE</p></a> </li>
+                            <li> <a href="kitchenware/"><p style="font-size: 20px">DRINKWARE</p></a> </li>
+                            </ul>
                         </div>
                     </div>
 
@@ -171,7 +141,7 @@
                                     <div class="product-tag">
                                         <a href="#">Hot</a>
                                     </div>
-                                    <div class="product-meta d-flex">
+                                    <div class="product-meta d-flex" id="a{{item.item_id}}" data-category="{{item.item_category}}" data-name="{{item.item_title}}">
                                         <a href="/cart/" class="cart-btn"><i class="fa fa-shopping-cart"></i></a>
                                         <a  href="#" id="btn{{ item.item_id }}" class="add-to-cart-btn cart">Add to
                                             cart</a>
@@ -238,24 +208,41 @@
 {% endblock %}
 {% block js %}
 <script>
-   
-    var cart = {};
-
-
+//       if(cart == undefined | cart.length==undefined ){
+//         var cart = {};
+    
+//    }
+        // if(localStorage.getItem('cart') == null){
+        //     var cart= [[]];
+        // }
+        // else{
+        //     cart = JSON.parse(localStorage.getItem('cart'));
+        //     localStorage.setItem('cart', JSON.stringify(cart))
+        // }
 
     $('.cart').click(function addCart() {
-        console.log("clicked")
-        var idstr = this.id.toString();
+       
+        var idstr = $(this).parent().attr('id').toString();
+        var idname = $(this).parent().attr('data-name').toString();
+        var idcategory = $(this).parent().attr('data-category').toString();
 
-        if (cart[idstr] != undefined) {
-            cart[idstr];
-            $("#"+idstr).html("Item Added")
-            $("#"+idstr).attr("disabled" , true)
-            saveCart();
+        var ids = this.id.toString();
+        //  console.log(idstr)
+
+        if (cart[idstr] == undefined) {
+            cart[idstr]=[idname,idcategory];
+
+            $("#"+ids).html("Item Added");
+            
+            localStorage.setItem('cart', JSON.stringify(cart));
+           
+            console.log(cart)
+            
         }
         else {
-            cart[idstr] = 1; 
-            saveCart();
+         
+            localStorage.setItem('cart', JSON.stringify(cart));
+           
 
         }
        
@@ -264,22 +251,14 @@
 
     });
         $('.del').click(function delItem(){
-            var ids = this.id.toString();
-            console.log("del is click")
-            delete cart[ids];
-            $("#"+ids).html("Add to Cart")
-            saveCart();
-
+            var idstr = $(this).parent().attr('id').toString();
+            delete cart[idstr]
+            localStorage.setItem('cart', JSON.stringify(cart));
 
         })
     
-        function saveCart(){
-            localStorage.setItem('cart', JSON.stringify(cart));
-        }
-
-    
-
-
+       
+   
 </script>
 
 
