@@ -276,10 +276,12 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
     <script>
     if(localStorage.getItem('cart') == null){
          var cart={};
+         
     
         }
         else{
             cart= JSON.parse(localStorage.getItem('cart'));
+
             document.getElementById('cart-btn').innerHTML = Object.keys(cart).length;
        
         }
