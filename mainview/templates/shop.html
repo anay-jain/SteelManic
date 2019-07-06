@@ -171,7 +171,7 @@
                                     <div class="product-tag">
                                         <a href="#">Hot</a>
                                     </div>
-                                    <div class="product-meta d-flex">
+                                    <div class="product-meta d-flex" id="a{{item.item_id}}">
                                         <a href="/cart/" class="cart-btn"><i class="fa fa-shopping-cart"></i></a>
                                         <a  href="#" id="btn{{ item.item_id }}" class="add-to-cart-btn cart">Add to
                                             cart</a>
@@ -238,24 +238,29 @@
 {% endblock %}
 {% block js %}
 <script>
-   
-    var cart = {};
-
-
+   if(cart == undefined | cart.length==undefined ){
+    var cart = [];
+    
+   }
 
     $('.cart').click(function addCart() {
-        console.log("clicked")
-        var idstr = this.id.toString();
+       
+        var idstr = $(this).parent().attr('id').toString();
 
-        if (cart[idstr] != undefined) {
-            cart[idstr];
-            $("#"+idstr).html("Item Added")
-            $("#"+idstr).attr("disabled" , true)
-            saveCart();
+        var ids = this.id.toString();
+        //  console.log(idstr)
+
+        if (cart.includes(idstr) == false) {
+            cart.push(idstr)
+            $("#"+ids).html("Item Added")
+            
+            localStorage.setItem('cart', JSON.stringify(cart));
+            
         }
         else {
-            cart[idstr] = 1; 
-            saveCart();
+         
+            localStorage.setItem('cart', JSON.stringify(cart));
+           
 
         }
        
@@ -264,12 +269,15 @@
 
     });
         $('.del').click(function delItem(){
-            var ids = this.id.toString();
-            console.log("del is click")
-            cart[ids] ==null
-            $("#"+ids).html("Add to Cart")
-            saveCart();
-
+            var idstr = $(this).parent().attr('id').toString();
+            var index = cart.indexOf(idstr);
+            console.log(idstr)
+            console.log(index)
+            if(index>-1){
+                cart.splice(index , 1)
+                console.log(cart)
+            }
+            localStorage.setItem('cart', JSON.stringify(cart));
 
         })
     
