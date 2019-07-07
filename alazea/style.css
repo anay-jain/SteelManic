@@ -1866,11 +1866,11 @@ img {
   .footer-area .main-footer-area {
     position: relative;
     z-index: 1;
-    padding-top: 80px; }
+    padding-top: 50px; }
   .footer-area .single-footer-widget {
     position: relative;
     z-index: 1;
-    margin-bottom: 70px; }
+    margin-bottom: 50px; }
     .footer-area .single-footer-widget p {
       color: #b7b7b7;
       margin-bottom: 20px; }

@@ -3,7 +3,11 @@ from mainview.models import Item, Query
 from django.core.paginator import Paginator
 
 def index(request):
-    return render(request, 'index.html')
+    all_items = Item.objects.filter(item_category='barware')
+    context = {
+        'all_items' : all_items,
+    }
+    return render(request, 'index.html',context)
 
 def about(request):
     return render(request ,'about.html')
