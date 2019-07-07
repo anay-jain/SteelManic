@@ -10,14 +10,14 @@
             <!-- Single Hero Post -->
             <div class="single-hero-post bg-overlay">
                 <!-- Post Image -->
-                <div class="slide-img bg-img" style="background-image: url( 'static/sm/img/2.jpg' );"></div>
+                <div class="slide-img bg-img" style="background-image: url({% static 'sm/img/banner1.jpg'%});"></div>
                 <div class="container h-100">
                     <div class="row h-100 align-items-center">
                         <div class="col-12">
                             <!-- Post Content -->
                             <div class="hero-slides-content text-center">
                                 <h2>Welcome to Steel Manic</h2>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur pellentesque ante nec ipsum iaculis, ac iaculis ipsum porttitor. Vivamus cursus nisl lectus, id mattis nisl lobortis eu. Duis diam augue, dapibus ut dolor at, mattis maximus dolor.</p>
+                                <p>Your Imaginations , Our Designs</p>
                                 <div class="welcome-btn-group">
                                     <a href="/shop" class="btn alazea-btn mr-30">GET STARTED</a>
                                     <a href="/contact" class="btn alazea-btn active">CONTACT US</a>
@@ -32,14 +32,14 @@
             <div class="single-hero-post bg-overlay">
                 <!-- Post Image -->
                     {% load static %}
-                <div class="slide-img bg-img" style="background-image: url({% static 'images/cover.jpg' %});"></div>
+                <div class="slide-img bg-img" style="background-image: url({% static 'sm/img/banner2.jpg'%});"></div>
                 <div class="container h-100">
                     <div class="row h-100 align-items-center">
                         <div class="col-12">
                             <!-- Post Content -->
                             <div class="hero-slides-content text-center">
                                 <h2>Steel Manic provides you with awesome culery</h2>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur pellentesque ante nec ipsum iaculis, ac iaculis ipsum porttitor. Vivamus cursus nisl lectus, id mattis nisl lobortis eu. Duis diam augue, dapibus ut dolor at, mattis maximus dolor.</p>
+                                <p>You Will find it with us !.</p>
                                 <div class="welcome-btn-group">
                                     <a href="/shop" class="btn alazea-btn mr-30">GET STARTED</a>
                                     <a href="/contact" class="btn alazea-btn active">CONTACT US</a>
@@ -59,7 +59,7 @@
                 <div class="col-12">
                     <!-- Section Heading -->
                     <div class="section-heading text-center">
-                        <h2>OUR SERVICES</h2>
+                        <h2>WHAT'S TRENDING</h2>
                         <p>We devote all of our experience and efforts for creation</p>
                     </div>
                 </div>
@@ -73,13 +73,13 @@
                 <!-- Single Portfolio Area -->
                 <div class="col-12 col-sm-3 col-lg-3 px-2 single_portfolio_item garden wow fadeInUp" data-wow-delay="200ms">
                     <!-- Portfolio Thumbnail -->
-                    <div class="portfolio-thumbnail bg-img" style="background-image: url(img/bg-img/cover1.jpg);"></div>
+                    <div class="portfolio-thumbnail bg-img" style="background-image: url({% static 'sm/img/cutlery1.jpg'%});"></div>
                     <!-- Portfolio Hover Text -->
                     <div class="portfolio-hover-overlay">
                         <a href="{% static 'sm/img/3.jpg' %}" class="portfolio-img d-flex align-items-center justify-content-center" title="Portfolio 2">
                             <div class="port-hover-text">
                                 <h3>Cutlery</h3>
-                                <h5>We design awesome culery</h5>
+                                <h5>Our Design , Our Potential</h5>
                             </div>
                         </a>
                     </div>
@@ -88,13 +88,13 @@
                 <!-- Single Portfolio Area -->
                 <div class="col-12 col-sm-3 col-lg-3 px-2 single_portfolio_item garden design wow fadeInUp" data-wow-delay="300ms">
                     <!-- Portfolio Thumbnail -->
-                    <div class="portfolio-thumbnail bg-img" style="background-image: url(img/bg-img/tableware.jpg);"></div>
+                    <div class="portfolio-thumbnail bg-img" style="background-image: url({% static 'sm/img/barware1.jpg'%});"></div>
                     <!-- Portfolio Hover Text -->
                     <div class="portfolio-hover-overlay">
                         <a href="{% static 'sm/img/3.jpg' %}" class="portfolio-img d-flex align-items-center justify-content-center" title="Portfolio 3">
                             <div class="port-hover-text">
-                                <h3>TableWare</h3>
-                                <h5>We have amazing TableWare</h5>
+                                <h3>BarWare</h3>
+                                <h5>Your Imagination , Our Designs</h5>
                             </div>
                         </a>
                     </div>
@@ -103,13 +103,13 @@
                 <!-- Single Portfolio Area -->
                 <div class="col-12 col-sm-3 col-lg-3 single_portfolio_item garden office-design wow fadeInUp" data-wow-delay="400ms">
                     <!-- Portfolio Thumbnail -->
-                    <div class="portfolio-thumbnail bg-img" style="background-image: url(img/bg-img/barware.jpg);"></div>
+                    <div class="portfolio-thumbnail bg-img" style="background-image: url({% static 'sm/img/homedecor1.jpg'%});"></div>
                     <!-- Portfolio Hover Text -->
                     <div class="portfolio-hover-overlay">
                         <a href="{% static 'sm/img/3.jpg' %}" class="portfolio-img d-flex align-items-center justify-content-center" title="Portfolio 4">
                             <div class="port-hover-text">
-                                <h3>barware</h3>
-                                <h5>Peete rhe jaaoge</h5>
+                                <h3>Home Decor </h3>
+                                <h5>You will find it with us</h5>
                             </div>
                         </a>
                     </div>
@@ -143,11 +143,18 @@
                     <!-- Section Heading -->
                     <div class="section-heading ">
                         <h2>ABOUT US</h2>
-                        <p>We are leading in the plants service fields.</p>
+                        <p>We are leading in exporting quality products .</p>
                     </div>
-                    <p>Quisque orci quam, vulputate non commodo finibus, molestie ac ante. Duis in sceleri quesem. Nulla sit amet varius nunc. Maecenas dui, tempeu ullam corper in.</p>
-                    <p>Quisque orci quam, vulputate non commodo finibus, molestie ac ante. Duis in sceleri quesem. Nulla sit amet varius nunc. Maecenas dui, tempeu ullam corper in.</p>
-                    <p>Quisque orci quam, vulputate non commodo finibus, molestie ac ante. Duis in sceleri quesem. Nulla sit amet varius nunc. Maecenas dui, tempeu ullam corper in.</p>
+                    <p>Steel Manic is into the manufacturing of high quality and a diverse range of stainless steel Pet ware, Bar
+                        ware and House ware products since 2000. Now, our designs are in the great demand in international
+                        market.</p>
+                    <p>Our company has an aim to bring distinctive Indian designs of Pet Ware, Bar Ware and Kitchen
+                        ware to the international market. Within a very short span of time we have established our credentials
+                        as the segment leaders.</p>
+                    <p>Steel Manic has maintained its edge as a leading exporter of high quality products. With its high
+                        standards of design, quality, and value, “Steel Manic” is the brand of the future. The latest technique,
+                        creative and exclusive designs are our expertise and the finest quality products are rapidly growing
+                        international clientele.</p>
                     <!-- Progress Bar Content Area -->
                     
                     </div>    
@@ -215,8 +222,8 @@
             <div class="row ">
                 <div class="col-12">
                     <div class="section-heading text-center">
-                                            <h2>OUR CLIENTS</h2>
-                                            <p>Some kind words from clients about Alazea</p>
+                                            <h2>WE ARE WORKING IN</h2>
+                                            <p>We have worked with all these countries</p>
                                         </div>
                     <div class="testimonials-slides owl-carousel">
 
@@ -226,17 +233,17 @@
                             <div class="row align-items-center">
                                 <div class="col-12 col-sm-4 col-lg-4">
                                     <div class="testimonial-thumb">
-                                        <img src="img/bg-img/15.jpg" alt="">
+                                        <img src="{% static 'sm/img/europe.png' %}" style="width: 100%; height:100%;" alt="">
                                     </div>
                                 </div>
                                 <div class="col-12 col-sm-4 col-lg-4 single_testimonial_item">
                                     <div class="testimonial-thumb">
-                                        <img src="img/bg-img/13.jpg" alt="">
+                                        <img src="{% static 'sm/img/dubai.jpg' %}" alt="">
                                     </div>
                                 </div>
                                 <div class="col-12 col-sm-4 col-lg-4">
                                     <div class="testimonial-thumb">
-                                        <img src="img/bg-img/15.jpg" alt="">
+                                        <img src="{% static 'sm/img/america.png' %}" alt="">
                                     </div>
                                 </div>
                             </div>   
@@ -247,17 +254,17 @@
                             <div class="row align-items-center">
                                 <div class="col-12 col-sm-4 col-lg-4">
                                     <div class="testimonial-thumb">
-                                        <img src="img/bg-img/13.jpg" alt="">
+                                        <img src="{% static 'sm/img/brazil.png' %}" alt="">
                                     </div>
                                 </div>
                                 <div class="col-12 col-sm-4 col-lg-4 single_testimonial_item">
                                     <div class="testimonial-thumb">
-                                        <img src="img/bg-img/14.jpg" alt="">
+                                        <img src="{% static 'sm/img/argentina.png' %}" alt="">
                                     </div>
                                 </div>
                                 <div class="col-12 col-sm-4 col-lg-4">
                                     <div class="testimonial-thumb">
-                                        <img src="img/bg-img/13.jpg" alt="">
+                                        <img src="{% static 'sm/img/saudi.png' %}" alt="">
                                     </div>
                                 </div>
                             </div>   
@@ -267,17 +274,17 @@
                             <div class="row align-items-center">
                                 <div class="col-12 col-sm-4 col-lg-4">
                                     <div class="testimonial-thumb">
-                                        <img src="img/bg-img/14.jpg" alt="">
+                                        <img src="{% static 'sm/img/singapore.png' %}" alt="">
                                     </div>
                                 </div>
                                 <div class="col-12 col-sm-4 col-lg-4 single_testimonial_item">
                                     <div class="testimonial-thumb">
-                                        <img src="img/bg-img/13.jpg" alt="">
+                                        <img src="{% static 'sm/img/italy.png' %}" alt="">
                                     </div>
                                 </div>
                                 <div class="col-12 col-sm-4 col-lg-4">
                                     <div class="testimonial-thumb">
-                                        <img src="img/bg-img/14.jpg" alt="">
+                                        <img src="{% static 'sm/img/phil.png' %}" alt="">
                                     </div>
                                 </div>
                             </div>   

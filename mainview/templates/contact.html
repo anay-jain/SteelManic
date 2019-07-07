@@ -1,5 +1,6 @@
 {% extends 'base.html'  %}
 {% block content %}
+{% load static %}
     <!-- ##### Breadcrumb Area Start ##### -->
     <div class="breadcrumb-area">
         <!-- Top Breadcrumb Area -->
@@ -29,7 +30,7 @@
                 <!-- Contact Thumbnail -->
                 <div class="col-12 col-md-6">
                     <div class="contact--thumbnail">
-                        <img src="img/bg-img/25.jpg" alt="">
+                        <img src="{% static 'sm/img/contact.png' %}" alt="">
                     </div>
                 </div>
 

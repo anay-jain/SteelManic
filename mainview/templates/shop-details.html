@@ -52,14 +52,19 @@
                                 <p>{{item.item_description}}</p>
                             </div>
 
-                            <div class="cart--area d-flex flex-wrap align-items-center">
+                            
                                 <!-- Add to Cart Form -->
-                                <form class="cart clearfix d-flex align-items-center" method="post">
-                                    <button type="submit" name="addtocart" value="5" class="btn alazea-btn ml-15">Add to cart</button>
-                                </form>
-
+                               
+                                    
+                                <div class="product-meta d-flex" id="a{{item.item_id}}" data-category="{{item.item_category}}" data-name="{{item.item_title}}">
+                                        <a href="/cart/" class="cart-btn"><i class="fa fa-shopping-cart" style="font-size: 3em; margin-right: 0.5em;" ><p ></p></i></a>
+                                        <a  href="#" id="btn{{ item.item_id }}" class="add-to-cart-btn cart" > <p style="font-size:25px!important" >    Add to
+                                            cart  </p></a>
+                                        <a href="#" class="del"><i class="icon_close" style="font-size: 3em; margin-left: 0.5em;" ><p></p></i></a>
+                                    </div>
+                              
                                 
-                            </div>
+                          
 
                             <div class="products--meta">
                                 <p><span>Item ID:</span> <span>{{item.item_id}}</span></p>
@@ -223,19 +228,20 @@
                     <div class="single-product-area mb-100">
                         <!-- Product Image -->
                         <div class="product-img">
-                            <a href="shop-details.html"><img src="img/bg-img/41.png" alt=""></a>
-                            <div class="product-meta d-flex">
-                                <a href="#" class="wishlist-btn"><i class="icon_heart_alt"></i></a>
-                                <a href="cart.html" class="add-to-cart-btn">Add to cart</a>
-                                <a href="#" class="compare-btn"><i class="arrow_left-right_alt"></i></a>
+                            <a href="/products/{{ item.item_id }}"><img src="/media/{{item.item_image}}" alt=""></a>
+                            <div class="product-meta d-flex" id="a{{item.item_id}}" data-category="{{item.item_category}}" data-name="{{item.item_title}}">
+                                <a href="/cart/" class="cart-btn"><i class="fa fa-shopping-cart"></i></a>
+                                <a  href="#" id="btn{{ item.item_id }}" class="add-to-cart-btn cart">Add to
+                                    cart</a>
+                                <a href="#" class="del"><i class="icon_close"></i></a>
                             </div>
                         </div>
                         <!-- Product Info -->
                         <div class="product-info mt-15 text-center">
                             <a href="shop-details.html">
-                                <p>Cactus Flower</p>
+                                <p>{{ item.item_title }}</p>
                             </a>
-                            <h6>$10.99</h6>
+                            <h6>{{ item.item_id }}</h6>
                         </div>
                     </div>
                 </div>
@@ -294,3 +300,47 @@
     <!-- ##### Related Product Area End ##### -->
 
  {% endblock %}
+ {% block js %}
+ <script>
+ $('.cart').click(function addCart() {
+       
+    var idstr = $(this).parent().attr('id').toString();
+    var idname = $(this).parent().attr('data-name').toString();
+    var idcategory = $(this).parent().attr('data-category').toString();
+
+    var ids = this.id.toString();
+    //  console.log(idstr)
+
+    if (cart[idstr] == undefined) {
+        cart[idstr]=[idname,idcategory];
+       
+
+        // $("#"+ids).html("Item Added");
+        location.reload(true);
+        localStorage.setItem('cart', JSON.stringify(cart));
+       
+        console.log(cart)
+        
+    }
+    else {
+     
+        localStorage.setItem('cart', JSON.stringify(cart));
+       
+
+    }
+   
+    // console.log(Object.keys('cart'))
+   
+
+});
+    $('.del').click(function delItem(){
+        var idstr = $(this).parent().attr('id').toString();
+        delete cart[idstr]
+        localStorage.setItem('cart', JSON.stringify(cart));
+        location.reload(true);
+
+    })
+
+
+</script>
+ {% endblock%}

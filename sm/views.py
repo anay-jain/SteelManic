@@ -68,5 +68,36 @@ def barware(request):
     }
     return render(request, 'shop/barware.html',context)
 
+def cutlery(request):
+    all_items = Item.objects.filter(item_category='cutlery')
+    paginator = Paginator(all_items , 2)
+    page = request.GET.get('page')
+    all_items = paginator.get_page(page)
+    context = {
+        'all_items' : all_items, }
+    
+    return render(request,'shop/cutlery.html' , context)
+
+def dogpots(request):
+    all_items = Item.objects.filter(item_category='dogpots')
+    paginator = Paginator(all_items , 2)
+    page = request.GET.get('page')
+    all_items = paginator.get_page(page)
+    context = {
+        'all_items' : all_items, } 
+    return render(request, 'shop/dogpots.html' , context)
+def homedecor(request):
+    all_items = Item.objects.filter(item_category='homedecor')
+    paginator = Paginator(all_items , 2)
+    page = request.GET.get('page')
+    all_items = paginator.get_page(page)
+    context = {
+        'all_items' : all_items,
+    }
+    return render(request , 'shop/homedecor.html' , context)
+
+def blogs(request):
+    return render(request , 'blogs.html')
+
 def contact_success(request):
     return render(request,'contact/contact_success.html')        

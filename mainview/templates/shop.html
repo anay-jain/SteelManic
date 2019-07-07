@@ -33,6 +33,7 @@
                     <!-- Shop Page Count -->
                     <div class="shop-page-count">
                         <h3>Showing {{ all_items.end_index }} of {{ all_items.paginator.count }} results</h3>
+                      
                     </div>
                     <!-- Search by Terms -->
 
@@ -231,9 +232,10 @@
 
         if (cart[idstr] == undefined) {
             cart[idstr]=[idname,idcategory];
+           
 
             $("#"+ids).html("Item Added");
-            
+           
             localStorage.setItem('cart', JSON.stringify(cart));
            
             console.log(cart)
@@ -254,6 +256,7 @@
             var idstr = $(this).parent().attr('id').toString();
             delete cart[idstr]
             localStorage.setItem('cart', JSON.stringify(cart));
+            location.reload(true);
 
         })
     
