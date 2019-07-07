@@ -1,9 +1,14 @@
 from django.shortcuts import render,get_object_or_404,HttpResponseRedirect
-from mainview.models import Item, Query
+from mainview.models import Item, Query,Newsletter
 from django.core.paginator import Paginator
 
 def index(request):
     all_items = Item.objects.filter(item_category='barware')
+    if request.method == "POST":
+        email=request.POST.get('email' , '')
+        newsletter = Newsletter(email=email)
+        newsletter.save()
+
     context = {
         'all_items' : all_items,
     }

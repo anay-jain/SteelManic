@@ -363,8 +363,8 @@
                 </div>
                 <div class="col-12 col-lg-6">
                     <div class="subscribe-form">
-                        <form action="#" method="get">
-                            <input type="email" name="subscribe-email" id="subscribeEmail" placeholder="Enter your email">
+                        <form action="/" method="post">{% csrf_token%}
+                            <input type="email" name="email" id="subscribeEmail" placeholder="Enter your email">
                             <button type="submit" class="btn alazea-btn">SUBSCRIBE</button>
                         </form>
                     </div>

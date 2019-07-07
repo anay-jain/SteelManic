@@ -15,10 +15,17 @@ class Query(models.Model):
     msg_id = models.AutoField(primary_key=True)
     itemjson =models.CharField(max_length=5200,blank=True)
     name= models.CharField(max_length=50)
-    email= models.CharField(max_length=60)
+    email=models.EmailField(unique=True)
     sub=models.CharField(max_length=200)
     phone=models.CharField(max_length=12)
     desc=models.TextField()
 
     def __str__(self):
         return self.name
+
+class Newsletter(models.Model):
+    email=models.EmailField(unique=True)
+
+
+    def __str__(self):
+        return self.email
