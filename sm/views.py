@@ -3,7 +3,7 @@ from mainview.models import Item, Query,Newsletter
 from django.core.paginator import Paginator
 
 def index(request):
-    all_items = Item.objects.filter(item_category='barware')
+    all_items = Item.objects.filter(item_category='barware')[:3]
     if request.method == "POST":
         email=request.POST.get('email' , '')
         newsletter = Newsletter(email=email)
@@ -32,7 +32,7 @@ def contact(request):
 
 def shop(request):
     all_items = Item.objects.all()
-    paginator = Paginator(all_items , 2)
+    paginator = Paginator(all_items , 9)
     page = request.GET.get('page')
     all_items = paginator.get_page(page)
     context = {
@@ -51,25 +51,25 @@ def cart(request):
 
 def kitchenware(request):
     all_items = Item.objects.filter(item_category='kitchenware')
-    paginator = Paginator(all_items , 2)
+    paginator = Paginator(all_items , 9)
     page = request.GET.get('page')
     all_items = paginator.get_page(page)
     context = {
         'all_items' : all_items,
     }
-    return render(request,'shop/kitchenware.html')
+    return render(request,'shop/kitchenware.html',context)
 def tableware(request):
     all_items = Item.objects.filter(item_category='tableware')
-    paginator = Paginator(all_items , 2)
+    paginator = Paginator(all_items , 9)
     page = request.GET.get('page')
     all_items = paginator.get_page(page)
     context = {
         'all_items' : all_items,
     }
-    return render(request,'shop/tableware.html')
+    return render(request,'shop/tableware.html',context)
 def barware(request):
     all_items = Item.objects.filter(item_category='barware')
-    paginator = Paginator(all_items , 2)
+    paginator = Paginator(all_items , 9)
     page = request.GET.get('page')
     all_items = paginator.get_page(page)
     context = {
@@ -79,7 +79,7 @@ def barware(request):
 
 def cutlery(request):
     all_items = Item.objects.filter(item_category='cutlery')
-    paginator = Paginator(all_items , 2)
+    paginator = Paginator(all_items , 9)
     page = request.GET.get('page')
     all_items = paginator.get_page(page)
     context = {
@@ -89,7 +89,7 @@ def cutlery(request):
 
 def dogpots(request):
     all_items = Item.objects.filter(item_category='dogpots')
-    paginator = Paginator(all_items , 2)
+    paginator = Paginator(all_items , 9)
     page = request.GET.get('page')
     all_items = paginator.get_page(page)
     context = {
@@ -97,7 +97,7 @@ def dogpots(request):
     return render(request, 'shop/dogpots.html' , context)
 def homedecor(request):
     all_items = Item.objects.filter(item_category='homedecor')
-    paginator = Paginator(all_items , 2)
+    paginator = Paginator(all_items , 9)
     page = request.GET.get('page')
     all_items = paginator.get_page(page)
     context = {

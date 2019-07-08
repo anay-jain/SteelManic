@@ -4,7 +4,8 @@
     <!-- ##### Breadcrumb Area Start ##### -->
     <div class="breadcrumb-area">
         <!-- Top Breadcrumb Area -->
-        <div class="top-breadcrumb-area bg-img bg-overlay d-flex align-items-center justify-content-center" style="background-image: url(img/bg-img/24.jpg);">
+        <div class="top-breadcrumb-area bg-img bg-overlay d-flex align-items-center justify-content-center" style="background-image: url({% 
+            static 'sm/img/contact-us-banner.jpg' %});">
             <h2>Contact US</h2>
         </div>
 
@@ -91,7 +92,7 @@
                                     </div>
                                 <div class="col-12">
                                     <div class="form-group">
-                                        <textarea class="form-control" name="message" id="message" cols="30" rows="10" placeholder="Message"></textarea>
+                                        <textarea class="form-control" name="desc" id="message" cols="30" rows="10" placeholder="Message"></textarea>
                                     </div>
                                 </div>
                                 <div class="col-12">
@@ -116,8 +117,8 @@
 {% block js %}
 <script>
        
+        $('#itemjson').val(JSON.stringify(cart));
        
-        localStorage.clear();
         
 </script>        
 {% endblock %}

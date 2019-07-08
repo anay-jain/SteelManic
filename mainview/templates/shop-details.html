@@ -1,10 +1,11 @@
 {% extends 'base.html' %}
 
 {% block content%}
+{% load static %}
     <!-- ##### Breadcrumb Area Start ##### -->
     <div class="breadcrumb-area">
         <!-- Top Breadcrumb Area -->
-        <div class="top-breadcrumb-area bg-img bg-overlay d-flex align-items-center justify-content-center" style="background-image: url(img/bg-img/24.jpg);">
+        <div class="top-breadcrumb-area bg-img bg-overlay d-flex align-items-center justify-content-center" style="background-image: url({% static 'sm/img/product-banner.jpg' %});">
             <h2>{{item.item_title|upper}}</h2>
         </div>
 

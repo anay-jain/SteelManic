@@ -32,7 +32,7 @@ urlpatterns = [
     path('products/<str:item_id>/',views.products,name="products"),
     path('contact/contact_success/' , views.contact_success , name='contact_success'),
     path('shop/cutlery/',views.cutlery , name="cutlery"),
-    path('shop/homedecor' , views.homedecor , name="homedecor"),
+    path('shop/homedecor/' , views.homedecor , name="homedecor"),
     path('blogs/' , views.blogs, name="blogs"),
     path('shop/dogpots/' ,views.dogpots,name="dogpots"),
 

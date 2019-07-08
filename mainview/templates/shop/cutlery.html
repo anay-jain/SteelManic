@@ -1,11 +1,12 @@
 {% extends 'base.html' %}
 {% block content %}
+{% load static %}
 <!-- ##### Breadcrumb Area Start ##### -->
 <div class="breadcrumb-area">
     <!-- Top Breadcrumb Area -->
     <div class="top-breadcrumb-area bg-img bg-overlay d-flex align-items-center justify-content-center"
-        style="background-image: url(img/bg-img/24.jpg);">
-        <h2>Shop</h2>
+        style="background-image: url({% static 'sm/img/cutlery-banner.jpg' %});">
+        <h2>CUTLERY</h2>
     </div>
 
     <div class="container">
@@ -54,10 +55,14 @@
                         <div class="widget-desc">
                             <!-- Single Checkbox -->
                             <ul>
-                            <li> <a href="barware/"><p style="font-size: 20px">BARWARE</p></a> </li>
-                            <li> <a href="tableware/"><p style="font-size: 20px">TABLEWARE</p></a> </li>
-                            <li> <a href="kitchenware/"><p style="font-size: 20px">DRINKWARE</p></a> </li>
-                            </ul>
+                                <li> <a href="/shop/barware"><p style="font-size: 20px">BARWARE</p></a> </li>
+                                <li> <a href="/shop/tableware"><p style="font-size: 20px">TABLEWARE</p></a> </li>
+                                <li> <a href="/shop/kitchenware"><p style="font-size: 20px">DRINKWARE</p></a> </li>
+                                <li> <a href="/shop/homedecor"><p style="font-size: 20px">HOME DECOR</p></a> </li>
+                                <li> <a href="/shop/dogpots"><p style="font-size: 20px">DOGPOTS </p></a> </li>
+                                <li> <a href="/shop/cutlery"><p style="font-size: 20px">CUTLERY</p></a> </li>
+                                <li> <a href="/shop/kitchenware"><p style="font-size: 20px">KITCHENWARE</p></a> </li>
+                                </ul>
                         </div>
                     </div>
 
@@ -80,7 +85,7 @@
                                     <div class="product-tag">
                                         <a href="#">Hot</a>
                                     </div>
-                                    <div class="product-meta d-flex" id="a{{item.item_id}}" data-category="{{item.item_category}}" data-name="{{item.item_title}}">
+                                    <div class="product-meta d-flex" id="a{{item.item_id}}" data-id="{{item.item_id}}" data-category="{{item.item_category}}" data-name="{{item.item_title}}">
                                         <a href="/cart/" class="cart-btn"><i class="fa fa-shopping-cart"></i></a>
                                         <a  href="#" id="btn{{ item.item_id }}" class="add-to-cart-btn cart">Add to
                                             cart</a>
@@ -161,7 +166,7 @@
 
     $('.cart').click(function addCart() {
        
-        var idstr = $(this).parent().attr('id').toString();
+        var idstr = $(this).parent().attr('data-id').toString();
         var idname = $(this).parent().attr('data-name').toString();
         var idcategory = $(this).parent().attr('data-category').toString();
 
