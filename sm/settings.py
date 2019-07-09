@@ -25,7 +25,7 @@ SECRET_KEY = 'nfst)-=qbf!x7bz=abcmbm7wltx=zr66n=h6d6r(d031b6r-og'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = [*]
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
